@@ -7,7 +7,7 @@ const Button = (props) => {
   
   return (
     <button className={extendedButtonStyle} onClick={props.onClick}>
-      Confirm Order
+      {props.name}
     </button>
   );
 };

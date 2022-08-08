@@ -12,7 +12,7 @@ const Header = (props) => {
       </div>
       <div className="flex justify-between items-center space-x-3">
         <ShoppingCartButton />
-        <Button className="px-6" />
+        <Button className="px-6" name="Confirm Order"/>
       </div>
     </nav>
   );

@@ -1,7 +1,6 @@
-import styles from "./FullWrapper.module.css";
 
 const FullWrapper = (props) => {
-  return <div className={styles.wrapper}>{props.children}</div>;
+  return <div className="h-full overflow-scroll bg-beige">{props.children}</div>;
 };
 
 export default FullWrapper;

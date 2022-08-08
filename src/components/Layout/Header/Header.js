@@ -1,20 +1,19 @@
 import Button from "../../UI/Button/Button";
 import ShoppingCartButton from "../ShoppingCartButton/ShoppingCartButton";
-import styles from "./Header.module.css"
 
 const Header = (props) => {
   return (
-    <nav className={styles.navContainer}>
-        <div className={styles.logo}>
-          yummy.
-        </div>
-        <div className={styles.slogan}>
-          Only the best food in town.
-        </div>
-        <div className={styles.buttonsContainer}>
-          <ShoppingCartButton />
-          <Button className="px-6" />
-        </div>
+    <nav className="relative container mx-auto p-6 flex items-center justify-between">
+      <div className="text-roseRed text-2xl font-medium subpixel-antialiased tracking-wider">
+        yummy.
+      </div>
+      <div className="hidden lg:flex text-kindaBlack text-2xl subpixel-antialiased tracking-widest italic">
+        Only the best food in town.
+      </div>
+      <div className="flex justify-between items-center space-x-3">
+        <ShoppingCartButton />
+        <Button className="px-6" />
+      </div>
     </nav>
   );
 };

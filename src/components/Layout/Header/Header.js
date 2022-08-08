@@ -13,7 +13,7 @@ const Header = (props) => {
         </div>
         <div className={styles.buttonsContainer}>
           <ShoppingCartButton />
-          <Button />
+          <Button className="px-6" />
         </div>
     </nav>
   );

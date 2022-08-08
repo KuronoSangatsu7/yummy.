@@ -1,0 +1,6 @@
+.bg {
+    background-image: url("../../../assets/food-md.jpg");
+    background-clip: "content-box";
+    background-position: "center";
+    background-size: "cover";
+  }

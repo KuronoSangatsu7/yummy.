@@ -7,7 +7,7 @@ const Header = (props) => {
       <div className="text-roseRed text-2xl font-medium subpixel-antialiased tracking-wider">
         yummy.
       </div>
-      <div className="hidden lg:flex text-kindaBlack text-2xl subpixel-antialiased tracking-widest italic">
+      <div className="hidden lg:flex text-kindaBlack text-2xl subpixel-antialiased tracking-widest italic underline decoration-roseRed decoration-2 underline-offset-8">
         Only the best food in town.
       </div>
       <div className="flex justify-between items-center space-x-3">

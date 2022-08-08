@@ -13,7 +13,7 @@ const DishItemForm = (props) => {
           type="number"
         ></input>
       </div>
-      <Button className="py-2 px-8 bg-roseRed" name="Add +" />
+      <Button className="py-2 px-8 bg-roseRed">Add +</Button>
     </form>
   );
 };

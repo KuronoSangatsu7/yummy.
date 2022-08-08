@@ -1,5 +1,5 @@
 const Button = (props) => {
-  const buttonStyle = "text-white text-sm font-medium bg-roseRed p-3 rounded-full drop-shadow-md hover:scale-110 hover:translate-y-1 hover:translate-x-1 transition-all duration-150"
+  const buttonStyle = "text-white text-sm font-medium bg-roseRed p-3 rounded-full drop-shadow-md hover:scale-110 hover:translate-y-1 hover:translate-x-1 transition-all duration-150 active:bg-red-800"
   const extendedButtonStyle = [
     props.className,
     buttonStyle
@@ -7,7 +7,7 @@ const Button = (props) => {
   
   return (
     <button className={extendedButtonStyle} onClick={props.onClick}>
-      {props.name}
+      {props.children}
     </button>
   );
 };

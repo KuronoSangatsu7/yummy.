@@ -1,4 +1,4 @@
-import DishItem from "./DishItem";
+import DishItem from "./DishItem/DishItem";
 
 const DUMMY_DISHES = [
   {
@@ -29,7 +29,7 @@ const DUMMY_DISHES = [
 
 const AvailableDishes = (props) => {
   const dishList = DUMMY_DISHES.map((dish) => 
-    <DishItem key={dish.id} name={dish.name} description={dish.description} price={dish.price} />
+    <DishItem key={dish.id} id={dish.id} name={dish.name} description={dish.description} price={dish.price} />
   );
   return (
       <div className="container flex-col space-y-6 mx-auto w-full md:w-2/5 divide-y-2 divide-gray-200 mt-10">{dishList}</div>

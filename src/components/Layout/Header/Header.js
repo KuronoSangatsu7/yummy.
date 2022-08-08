@@ -1,5 +1,5 @@
 import Button from "../../UI/Button/Button";
-import ShoppingCartButton from "../ShoppingCartButton/ShoppingCartButton";
+import ShoppingCartButton from "./ShoppingCartButton/ShoppingCartButton";
 
 const Header = (props) => {
   return (

@@ -9,6 +9,9 @@ module.exports = {
       xl: '1440px',
     },
     extend: {
+      minWidth: {
+        '4': '1.25rem',
+      },
       colors: {
         "beige": "#EEEAED",
         "roseRed": "#FE0435",

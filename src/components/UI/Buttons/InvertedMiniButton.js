@@ -1,5 +1,5 @@
 const InvertedMiniButton = (props) => {
-    const buttonStyle = "text-roseRed text-md font-semibold bg-white p-3 rounded-lg drop-shadow-md transition-all active:scale-150"
+    const buttonStyle = "text-roseRed text-md font-semibold bg-white py-1 rounded-lg drop-shadow-md transition-all active:scale-150"
     const extendedButtonStyle = [
       props.className,
       buttonStyle

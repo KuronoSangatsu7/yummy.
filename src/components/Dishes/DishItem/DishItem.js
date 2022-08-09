@@ -5,7 +5,6 @@ const DishItem = (props) => {
   const { addItem } = useCart();
 
   const addToCartHandler = (amount) => {
-    console.log("khra")
     addItem({
       id: props.id,
       name: props.name,

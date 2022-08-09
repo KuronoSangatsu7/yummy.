@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 
 const Backdrop = (props) => {
   return (
-    <div className="flex fixed inset-0 bg-beige/5 backdrop-blur-sm z-10">
+    <div className="flex fixed inset-0 bg-beige/5 backdrop-blur-sm z-10 overflow-auto">
       {props.children}
     </div>
   );

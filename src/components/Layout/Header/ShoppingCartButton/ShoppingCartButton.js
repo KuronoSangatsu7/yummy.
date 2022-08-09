@@ -1,4 +1,4 @@
-import { useCart } from "../../../../store/cart-context";
+import { useCart } from "../../../../store/CartContextProvider";
 import ShoppingCartIcon from "./ShoppingCartIcon";
 
 const ShoppingCartButton = (props) => {

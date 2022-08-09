@@ -5,7 +5,7 @@ import BodyWrapper from "./components/UI/BodyWrapper/BodyWrapper.js";
 import Summary from "./components/Dishes/Summary.js";
 import AvailableDishes from "./components/Dishes/AvailableDishes.js";
 import Cart from "./components/Cart/Cart.js";
-import { CartContextProvider } from "./store/cart-context.js";
+import { CartContextProvider } from "./store/CartContextProvider";
 
 const App = () => {
   const [showCart, setShowCart] = useState(false);

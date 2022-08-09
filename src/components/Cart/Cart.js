@@ -2,7 +2,7 @@ import Button from "../UI/Buttons/Button";
 import InvertedButton from "../UI/Buttons/InvertedButton";
 import CartList from "./CartList";
 import Modal from "../UI/Modal/Modal";
-import { useCart } from "../../store/cart-context";
+import { useCart } from "../../store/CartContextProvider";
 
 const Cart = (props) => {
   const {items, totalAmount, addItem, removeItem} = useCart();

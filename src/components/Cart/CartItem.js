@@ -5,7 +5,7 @@ const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`
 
   return (
-    <div className="flex-col space-y-6 snap-start">
+    <div className="flex-col space-y-3 snap-start">
       <div className="text-xl">{props.name}</div>
       <div className="flex justify-between">
         <div className="flex space-x-4">

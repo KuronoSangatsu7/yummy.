@@ -6,7 +6,7 @@ import Modal from "../UI/Modal/Modal";
 const Cart = (props) => {
   return (
     <Modal>
-      <div className="p-2 py-4 pl-4 text-3xl tracking-wider bg-kindaBlack text-white rounded-t-xl">
+      <div className="p-2 py-4 pl-4 text-3xl tracking-wider bg-beige text-black rounded-t-xl">
         Checkout
       </div>
       <div className="p-6 flex-col space-y-3">
@@ -17,7 +17,7 @@ const Cart = (props) => {
           <div className="text-xl font-semibold tracking-wider">$25.69</div>
         </div>
         <div className="flex justify-end space-x-2">
-          <InvertedButton className="basis-20">
+          <InvertedButton className="basis-20" onClick={props.onClose}>
             Cancel
           </InvertedButton>
           <Button className="basis-20">Order</Button>

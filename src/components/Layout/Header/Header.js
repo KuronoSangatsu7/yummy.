@@ -11,7 +11,7 @@ const Header = (props) => {
         Only the best food in town.
       </div>
       <div className="flex justify-between items-center space-x-3">
-        <ShoppingCartButton />
+        <ShoppingCartButton onClick={props.onShowCart}/>
         <Button className="px-6">Confirm Order</Button>
       </div>
     </nav>

@@ -10,7 +10,7 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <div className="flex-col m-auto w-2/3 md:w-2/5 drop-shadow-lg z-50 bg-beige shadow rounded-xl">
+    <div className="flex-col m-auto w-2/3 md:w-2/5 drop-shadow-lg bg-beige shadow rounded-xl">
       {props.children}
     </div>
   );

@@ -1,5 +1,5 @@
-import InvertedMiniButton from "../UI/Button/InvertedMiniButton";
-import MiniButton from "../UI/Button/MiniButton";
+import InvertedMiniButton from "../UI/Buttons/InvertedMiniButton";
+import MiniButton from "../UI/Buttons/MiniButton";
 
 const CartItem = (props) => {
   return (

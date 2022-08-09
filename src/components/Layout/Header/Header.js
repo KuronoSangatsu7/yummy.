@@ -1,4 +1,4 @@
-import Button from "../../UI/Button/Button";
+import Button from "../../UI/Buttons/Button";
 import ShoppingCartButton from "./ShoppingCartButton/ShoppingCartButton";
 
 const Header = (props) => {

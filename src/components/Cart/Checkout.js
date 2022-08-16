@@ -3,8 +3,13 @@ import InvertedButton from "../UI/Buttons/InvertedButton";
 import Input from "../UI/Input/Input";
 
 const Checkout = (props) => {
+  const submitHandler = (event) => {
+    event.preventDefault();
+    console.log("Food is on the way");
+  };
+
   return (
-    <form className="flex flex-col space-y-6">
+    <form className="flex flex-col space-y-6" onSubmit={submitHandler}>
       <div className="flex flex-col lg:flex-row justify-between space-y-2 items-baseline">
         <label htmlFor="first-name">First Name:</label>
         <Input id="first-name" type="text" />
@@ -20,8 +25,16 @@ const Checkout = (props) => {
       <label htmlFor="address">Street Address:</label>
       <Input id="address" type="text" className="lg:w-4/5"></Input>
       <div className="flex space-x-2 self-end">
-      <InvertedButton type="button" className="w-24" onClick={props.onEditOrder}>Edit Order</InvertedButton>
-      <Button type="submit" className="w-32">Confirm Order</Button>
+        <InvertedButton
+          type="button"
+          className="w-24"
+          onClick={props.onEditOrder}
+        >
+          Edit Order
+        </InvertedButton>
+        <Button type="submit" className="w-32">
+          Confirm Order
+        </Button>
       </div>
     </form>
   );

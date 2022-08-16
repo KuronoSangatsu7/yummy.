@@ -33,7 +33,7 @@ const AvailableDishes = (props) => {
 
   loading && !error && (content = <Spinner className="place-self-center"/>);
 
-  !loading && error && (content = <>{error}</>);
+  !loading && error && (content = <div className="place-self-center text-roseRed">Something went wrong. Please try again later.</div>);
 
   !loading &&
     !error &&

@@ -16,7 +16,7 @@ const DishItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between snap-center">
       <div className="flex flex-col space-y-2">
         <div className="font-semibold">{props.name}</div>
         <div className="italic text-sm">{props.description}</div>

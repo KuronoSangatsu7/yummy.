@@ -1,6 +1,7 @@
 import DishItem from "./DishItem/DishItem";
 import useHttp from "../../hooks/use-http";
 import { useEffect, useState } from "react";
+import Spinner from "../UI/Spinner/Spinner";
 
 const AvailableDishes = (props) => {
   const [meals, setMeals] = useState([]);
@@ -28,18 +29,27 @@ const AvailableDishes = (props) => {
     );
   }, [fetchMeals]);
 
-  const dishList = meals.map((dish) => (
-    <DishItem
-      key={dish.id}
-      id={dish.id}
-      name={dish.name}
-      description={dish.description}
-      price={dish.price}
-    />
-  ));
+  let content = <>No dishes available at the moment :\</>;
+
+  loading && !error && (content = <Spinner className="place-self-center"/>);
+
+  !loading && error && (content = <>{error}</>);
+
+  !loading &&
+    !error &&
+    (content = meals.map((dish) => (
+      <DishItem
+        key={dish.id}
+        id={dish.id}
+        name={dish.name}
+        description={dish.description}
+        price={dish.price}
+      />
+    )));
+
   return (
-    <div className="container flex-col space-y-6 mx-auto w-full md:w-2/5 divide-y-2 divide-gray-200 mt-10 max-h-96 overflow-scroll scroll-smooth snap-y">
-      {dishList}
+    <div className="container flex flex-col space-y-6 mx-auto w-full md:w-2/5 divide-y-2 divide-gray-200 mt-10 max-h-96 overflow-scroll scroll-smooth snap-y">
+      {content}
     </div>
   );
 };

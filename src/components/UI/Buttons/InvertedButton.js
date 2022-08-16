@@ -6,7 +6,7 @@ const InvertedButton = (props) => {
     ].join(' ')
     
     return (
-      <button className={extendedButtonStyle} onClick={props.onClick}>
+      <button className={extendedButtonStyle} onClick={props.onClick} type={props.type}>
         {props.children}
       </button>
     );

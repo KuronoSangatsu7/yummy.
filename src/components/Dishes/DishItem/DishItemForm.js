@@ -19,8 +19,9 @@ const DishItemForm = (props) => {
       setAmountIsValid(false)
       return;
     }
-
+    setAmountIsValid(true)
     props.onAddToCart(enteredAmountNumber);
+    amountInputRef.current.value = ""
   };
 
   return (

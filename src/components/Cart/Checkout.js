@@ -64,7 +64,15 @@ const Checkout = (props) => {
   const submitHandler = (event) => {
     if (!formIsValid) return;
     event.preventDefault();
-    console.log("Food is on the way");
+
+    props.onOrder({
+      firstName: firstNameValue,
+      lastName: lastNameValue,
+      email: emailValue,
+      ZIP: ZIPValue,
+      address: addressValue
+    });
+
     firstNameReset();
     lastNameReset();
     emailReset();
@@ -114,7 +122,7 @@ const Checkout = (props) => {
           onBlur={ZIPBlurHandler}
         />
       </div>
-      <label htmlFor="address">Street Address:</label>
+      <label htmlFor="address">Address:</label>
       <Input
         id="address"
         type="text"

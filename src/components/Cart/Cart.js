@@ -5,10 +5,14 @@ import Modal from "../UI/Modal/Modal";
 import { useCart } from "../../store/CartContextProvider";
 import Checkout from "./Checkout";
 import { useState } from "react";
+import useHttp from "../../hooks/use-http";
+import Spinner from "../UI/Spinner/Spinner";
 
 const Cart = (props) => {
   const [showCheckout, setShowCheckout] = useState(false);
-  const { items, totalAmount, addItem, removeItem } = useCart();
+  const [didSubmit, setDidSubmit] = useState(false);
+  const { items, totalAmount } = useCart();
+  const { loading, error, requestHttp: submitOrder } = useHttp();
 
   const fixedTotalAmount = `$${totalAmount.toFixed(2)}`;
 
@@ -19,8 +23,17 @@ const Cart = (props) => {
   };
 
   const editOrderHandler = () => {
-    setShowCheckout(false)
-  }
+    setShowCheckout(false);
+  };
+
+  const checkoutOrderHandler = (userData) => {
+    submitOrder({
+      url: "https://yummy-4e21c-default-rtdb.europe-west1.firebasedatabase.app/orders.json",
+      method: "POST",
+      body: JSON.stringify({ user: userData, orderedItems: items }),
+    });
+    setDidSubmit(true);
+  };
 
   const cartView = (
     <>
@@ -36,14 +49,38 @@ const Cart = (props) => {
         <InvertedButton className="basis-20" onClick={props.onClose}>
           Cancel
         </InvertedButton>
-        <Button disabled={!hasItems} className="basis-20" onClick={orderHandler}>
+        <Button
+          disabled={!hasItems}
+          className="basis-20"
+          onClick={orderHandler}
+        >
           Order
         </Button>
       </div>
     </>
   );
 
-  const checkoutView = <Checkout onEditOrder={editOrderHandler} />;
+  const checkoutView = (
+    <Checkout onEditOrder={editOrderHandler} onOrder={checkoutOrderHandler} />
+  );
+
+  const loadingView = (
+    <div className="text-center">
+      <Spinner />
+    </div>
+  );
+
+  const successView = (
+    <>
+      <div className="text-2xl text-darkGreen text-center">Success!</div>
+      <div className="text-center text-sm">
+        Your order will arive shortly...
+      </div>
+      <Button className="w-32 self-end" onClick={props.onClose}>
+        Okay
+      </Button>
+    </>
+  );
 
   return (
     <Modal>
@@ -51,7 +88,9 @@ const Cart = (props) => {
         {showCheckout ? "Checkout" : "Cart"}
       </div>
       <div className="p-6 flex flex-col space-y-3">
-        {showCheckout ? checkoutView : cartView}
+        {!loading && !didSubmit && (showCheckout ? checkoutView : cartView)}
+        {loading && loadingView}
+        {!loading && didSubmit && successView}
       </div>
     </Modal>
   );

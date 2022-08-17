@@ -48,7 +48,7 @@ const AvailableDishes = (props) => {
     )));
 
   return (
-    <div className="container flex flex-col space-y-6 mx-auto w-full md:w-2/5 divide-y-2 divide-gray-200 mt-10 max-h-96 overflow-scroll scroll-smooth snap-y">
+    <div className="container flex flex-col space-y-6 mx-auto w-full md:w-2/5 divide-y-2 divide-gray-200 mt-10 max-h-96 overflow-scroll scroll-smooth snap-y bg-beige p-4 rounded-md dropshadow-md">
       {content}
     </div>
   );

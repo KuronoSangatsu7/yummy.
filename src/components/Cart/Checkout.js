@@ -1,29 +1,129 @@
+import useInput from "../../hooks/use-input";
 import Button from "../UI/Buttons/Button";
 import InvertedButton from "../UI/Buttons/InvertedButton";
 import Input from "../UI/Input/Input";
 
+const isNonEmpty = (value) => value.trim().length > 0;
+const isValidZIP = (value) => !isNaN(value) && value.trim().length == 5;
+const isValidEmail = (value) =>
+  isNonEmpty(value) && value.includes("@") && value.includes(".");
+
 const Checkout = (props) => {
+  const {
+    value: firstNameValue,
+    valid: firstNameIsValid,
+    invalid: firstNameIsInvalid,
+    valueChangeHandler: firstNameChangeHandler,
+    blurChangeHandler: firstNameBlurHandler,
+    reset: firstNameReset,
+  } = useInput(isNonEmpty);
+
+  const {
+    value: lastNameValue,
+    valid: lastNameIsValid,
+    invalid: lastNameIsInvalid,
+    valueChangeHandler: lastNameChangeHandler,
+    blurChangeHandler: lastNameBlurHandler,
+    reset: lastNameReset,
+  } = useInput(isNonEmpty);
+
+  const {
+    value: emailValue,
+    valid: emailIsValid,
+    invalid: emailIsInvalid,
+    valueChangeHandler: emailChangeHandler,
+    blurChangeHandler: emailBlurHandler,
+    reset: emailReset,
+  } = useInput(isValidEmail);
+
+  const {
+    value: ZIPValue,
+    valid: ZIPIsValid,
+    invalid: ZIPIsInvalid,
+    valueChangeHandler: ZIPChangeHandler,
+    blurChangeHandler: ZIPBlurHandler,
+    reset: ZIPReset,
+  } = useInput(isValidZIP);
+
+  const {
+    value: addressValue,
+    valid: addressIsValid,
+    invalid: addressIsInvalid,
+    valueChangeHandler: addressChangeHandler,
+    blurChangeHandler: addressBlurHandler,
+    reset: addressReset,
+  } = useInput(isNonEmpty);
+
+  const formIsValid =
+    firstNameIsValid &&
+    lastNameIsValid &&
+    emailIsValid &&
+    ZIPIsValid &&
+    addressIsValid;
+
   const submitHandler = (event) => {
+    if (!formIsValid) return;
     event.preventDefault();
     console.log("Food is on the way");
+    firstNameReset();
+    lastNameReset();
+    emailReset();
+    ZIPReset();
+    addressReset();
   };
 
   return (
     <form className="flex flex-col space-y-6" onSubmit={submitHandler}>
       <div className="flex flex-col lg:flex-row justify-between space-y-2 items-baseline">
         <label htmlFor="first-name">First Name:</label>
-        <Input id="first-name" type="text" />
+        <Input
+          id="first-name"
+          type="text"
+          value={firstNameValue}
+          invalid={firstNameIsInvalid}
+          onChange={firstNameChangeHandler}
+          onBlur={firstNameBlurHandler}
+        />
         <label htmlFor="last-name">Last Name:</label>
-        <Input id="last-name" type="text" />
+        <Input
+          id="last-name"
+          type="text"
+          value={lastNameValue}
+          invalid={lastNameIsInvalid}
+          onChange={lastNameChangeHandler}
+          onBlur={lastNameBlurHandler}
+        />
       </div>
       <div className="flex flex-col lg:flex-row justify-between space-y-2 items-baseline">
         <label htmlFor="email">Email Address:</label>
-        <Input id="email" type="email" />
+        <Input
+          id="email"
+          type="email"
+          value={emailValue}
+          invalid={emailIsInvalid}
+          onChange={emailChangeHandler}
+          onBlur={emailBlurHandler}
+        />
         <label htmlFor="zip">ZIP Code:</label>
-        <Input id="zip" type="text" />
+        <Input
+          id="zip"
+          type="text"
+          value={ZIPValue}
+          invalid={ZIPIsInvalid}
+          onChange={ZIPChangeHandler}
+          onBlur={ZIPBlurHandler}
+        />
       </div>
       <label htmlFor="address">Street Address:</label>
-      <Input id="address" type="text" className="lg:w-4/5"></Input>
+      <Input
+        id="address"
+        type="text"
+        className="lg:w-4/5"
+        value={addressValue}
+        invalid={addressIsInvalid}
+        onChange={addressChangeHandler}
+        onBlur={addressBlurHandler}
+      ></Input>
       <div className="flex space-x-2 self-end">
         <InvertedButton
           type="button"

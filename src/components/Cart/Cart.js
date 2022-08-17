@@ -11,7 +11,7 @@ import Spinner from "../UI/Spinner/Spinner";
 const Cart = (props) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
-  const { items, totalAmount } = useCart();
+  const { items, totalAmount, clearCart } = useCart();
   const { loading, error, requestHttp: submitOrder } = useHttp();
 
   const fixedTotalAmount = `$${totalAmount.toFixed(2)}`;
@@ -33,6 +33,7 @@ const Cart = (props) => {
       body: JSON.stringify({ user: userData, orderedItems: items }),
     });
     setDidSubmit(true);
+    clearCart()
   };
 
   const cartView = (

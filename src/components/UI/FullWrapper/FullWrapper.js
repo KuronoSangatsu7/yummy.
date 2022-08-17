@@ -1,4 +1,4 @@
-import styles from "../BodyWrapper/BodyWrapper.module.css"
+import styles from "./FullWrapper.module.css"
 
 const FullWrapper = (props) => {
   return (

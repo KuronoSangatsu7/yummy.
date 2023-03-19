@@ -2,6 +2,7 @@ import DishItem from "./DishItem/DishItem";
 import useHttp from "../../hooks/use-http";
 import { useEffect, useState } from "react";
 import Spinner from "../UI/Spinner/Spinner";
+import styles from "./AvailableDishes.module.css";
 
 const AvailableDishes = (props) => {
   const [meals, setMeals] = useState([]);
@@ -31,9 +32,15 @@ const AvailableDishes = (props) => {
 
   let content = <>No dishes available at the moment :\</>;
 
-  loading && !error && (content = <Spinner className="place-self-center"/>);
+  loading && !error && (content = <Spinner className="place-self-center" />);
 
-  !loading && error && (content = <div className="place-self-center text-roseRed">Something went wrong. Please try again later.</div>);
+  !loading &&
+    error &&
+    (content = (
+      <div className="place-self-center text-roseRed">
+        Something went wrong. Please try again later.
+      </div>
+    ));
 
   !loading &&
     !error &&
@@ -48,7 +55,9 @@ const AvailableDishes = (props) => {
     )));
 
   return (
-    <div className="container flex flex-col space-y-6 mx-auto w-full md:w-2/5 divide-y-2 divide-gray-200 mt-10 max-h-96 overflow-scroll scroll-smooth snap-y bg-beige p-4 rounded-md dropshadow-md">
+    <div
+      className={`container flex flex-col space-y-6 mx-auto w-full md:w-2/5 divide-y-2 divide-gray-200 mt-10 max-h-96 overflow-scroll scroll-smooth snap-y bg-beige p-4 rounded-md dropshadow-md ${styles.noscroll}`}
+    >
       {content}
     </div>
   );

@@ -1,7 +1,3 @@
-.bg {
-  background-image: url("../../../assets/bg.jpg");
-}
-
 .noscroll::-webkit-scrollbar {
   display: none;
 }
